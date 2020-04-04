@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "webpack -d --watch & live-server --port=3030 --watch=dist --open=dist",
-    "start-oh": "webpack -d --watch"
+    "start-oh": "webpack -d --watch",
+    "server": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,11 @@
     "cors": "^2.8.5",
     "express": "^4.17.0",
     "mongoose": "^5.5.14",
+    "nodemon": "^2.0.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -34,8 +38,6 @@
     "babel-loader": "^8.0.6",
     "live-server": "^1.2.1",
     "mysql": "^2.17.1",
-    "nodemon": "^1.19.0",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2"
+    "path": "^0.12.7"
   }
 }
