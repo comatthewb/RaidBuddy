@@ -8,6 +8,7 @@ class Roster extends React.Component {
     this.state = { roster: [], rosterItem: "", bench: [], benchRender: false };
     this.addItem = this.addItem.bind(this);
     this.updateItem = this.updateItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   addItem() {
@@ -24,6 +25,15 @@ class Roster extends React.Component {
     }
   }
 
+  deleteItem(index) {
+    var rosterCopy = this.state.roster.slice();
+    console.log("rosterCopy", rosterCopy);
+    console.log("index", index);
+    rosterCopy.splice(index, 1);
+
+    this.setState({ roster: rosterCopy });
+  }
+
   updateItem(event) {
     event.preventDefault();
     this.setState({
@@ -32,16 +42,33 @@ class Roster extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h1> ROSTER</h1>
-        <input placeholder="Add Member" onChange={this.updateItem} />
-        <button onClick={this.addItem}> Submit</button>
-        <ul>
-          <RosterItem rosterItem={this.state.roster} />
-        </ul>
-        <ul>
-          <Bench state={this.state} benchItem={this.state.bench} />
-        </ul>
+      <div className="row">
+        <div className="col-md-6">
+          <h1 id="RosterHeader"> R O S T E R // </h1>
+          <div className="roster-submission-header">
+            <input
+              className="form-control roster-form"
+              placeholder="Add Member"
+              onChange={this.updateItem}
+            />
+            <a className="rosterSubmitButton" onClick={this.addItem}>
+              S U B M I T
+            </a>
+          </div>
+          <ul className="list-group">
+            <RosterItem
+              rosterItem={this.state.roster}
+              deleteItem={this.deleteItem}
+            />
+          </ul>
+          <ol className="list-group">
+            <Bench
+              state={this.state}
+              benchItem={this.state.bench}
+              deleteItem={this.deleteItem}
+            />
+          </ol>
+        </div>
       </div>
     );
   }

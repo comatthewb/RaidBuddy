@@ -8,7 +8,7 @@ const Bench = (props) => {
         {props.benchItem.map((item, index) => {
           return (
             <div key={index}>
-              <li>{item}</li>
+              <li className="list-group-item">{item}</li>
             </div>
           );
         })}
