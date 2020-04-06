@@ -7,6 +7,8 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist")));
 
+//
+
 // app.get("/", (req, res) => res.send("hello world"));
 
 app.listen(port, () => console.log(`server is listening on port ${port}`));
